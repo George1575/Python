@@ -1,0 +1,45 @@
+shipping_method = int(input("""
+            please choose one of the 3 shipping methods \n
+            1. ground shipping
+            2. ground shipping premium
+            3. done shipping
+                    """))
+
+weight = int(input("Please enter the weight"))
+
+def ground_shipping(weight):
+    if weight <= 2:
+        return (weight * 1.5) + 20
+    if weight > 2 and weight <= 6:
+        return (weight * 3.0) + 20
+    if weight > 6 and weight <= 10:
+        return (weight * 4.0) + 20
+    if weight > 10:
+        return (weight * 4.75) + 20
+
+
+def ground_shipping_premium(weight, flat_charge=125):
+    return (weight * 0 + flat_charge)
+
+
+def drone_shipping(weight):
+    if weight <= 2:
+        return (weight * 4.5)
+    if weight > 2 and weight <= 6:
+        return (weight * 9.0)
+    if weight > 6 and weight <= 10:
+        return (weight * 12.0)
+    if weight > 10:
+        return (weight * 14.25)
+
+if shipping_method == 1:
+    print(int(ground_shipping(weight)))
+
+elif shipping_method == 2:
+    print(int(ground_shipping_premium(weight, flat_charge=125)))
+
+else:
+    print(int(drone_shipping(weight)))
+
+
+
